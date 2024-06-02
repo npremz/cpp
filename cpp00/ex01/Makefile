@@ -2,7 +2,7 @@ NAME = phonebook
 
 HEADER = ./
 
-SOURCES = phonebook.cpp
+SOURCES = main.cpp PhoneBook.class.cpp Contact.class.cpp 
 
 OBJECTS = $(SOURCES:.cpp=.opp)
 
