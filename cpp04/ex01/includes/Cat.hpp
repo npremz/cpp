@@ -6,7 +6,7 @@
 /*   By: npremont <npremont@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 09:17:40 by npremont          #+#    #+#             */
-/*   Updated: 2024/09/06 10:53:10 by npremont         ###   ########.fr       */
+/*   Updated: 2024/09/09 17:02:00 by npremont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 # define CAT_HPP
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Cat : public Animal 
 {
+	private:
+		Brain* cervelle;
+
     public:
         Cat();
         Cat(const Cat& other);
@@ -27,3 +31,4 @@ class Cat : public Animal
 };
 
 #endif
+

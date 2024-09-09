@@ -12,38 +12,39 @@
 
 #include "../includes/Cat.hpp"
 #include "../includes/Dog.hpp"
-#include "../includes/WrongCat.hpp"
+
+#define ZOO 4
 
 int main(void)
 {
-    Animal* sylvain = new Cat();
-    Animal* benji = new Dog();
-    Animal* kouki = new Animal();
+	Animal *zoo[ZOO];
+	for (int i = 0; i < ZOO; ++i)
+	{
+		if (i % 2)
+			zoo[i] = new Dog();
+		else
+			zoo[i] = new Cat();
+	}
+	for (int i = 0; i < ZOO; ++i)
+	{
+		delete zoo[i];
+	}
 
-    WrongAnimal* casca = new WrongAnimal();
-    WrongAnimal* gabriel = new WrongCat();
-    
-    std::cout << sylvain->getType() << std::endl;
-    std::cout << benji->getType() << std::endl;
-    
-    std::cout << std::endl;
+	std::cout << std::endl;
 
-    kouki->makeSound();
-    sylvain->makeSound();
-    benji->makeSound();
+	Animal* benji = new Dog();
 
-    std::cout << std::endl;
+	std::cout << std::endl;
 
-    casca->makeSound();
-    gabriel->makeSound();
+	((Dog*)benji)->setIdea(12, "waf");
+	std::cout << "Benji idea: " << ((Dog*)benji)->getIdea(12) << std::endl;
 
-    std::cout << std::endl;
+	Animal* casca = new Dog((Dog&)benji);
+	std::cout << "Casca idea: " << ((Dog*)casca)->getIdea(12) << std::endl;
 
-    delete sylvain;
-    delete benji;
-    delete kouki;
-    delete casca;
-    delete gabriel;
+	std::cout << std::endl;
+
+	delete benji;
 
     return (0);
 }
