@@ -6,7 +6,7 @@
 /*   By: npremont <npremont@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:23:41 by npremont          #+#    #+#             */
-/*   Updated: 2024/09/06 11:25:53 by npremont         ###   ########.fr       */
+/*   Updated: 2024/09/09 11:08:56 by npremont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,14 @@
 
 class Brain 
 {
-    private:
+    protected:
         std::string ideas[100];
+
+    public:
+        Brain();
+        Brain(const Brain& other);
+        Brain& operator=(const Brain& other);
+        virtual ~Brain();
 };
 
 #endif
