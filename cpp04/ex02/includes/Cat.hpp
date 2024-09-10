@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: npremont <npremont@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/04 09:10:59 by npremont          #+#    #+#             */
-/*   Updated: 2024/09/10 13:26:51 by npremont         ###   ########.fr       */
+/*   Created: 2024/09/04 09:17:40 by npremont          #+#    #+#             */
+/*   Updated: 2024/09/10 13:21:34 by npremont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-# include <iostream>
+# include "A_Animal.hpp"
+# include "Brain.hpp"
 
-class Animal 
+class Cat : public Animal 
 {
-    protected:
-        std::string type;
+	private:
+		Brain* cervelle;
 
     public:
-        Animal();
-        Animal(const Animal& other);
-        Animal& operator=(const Animal& other);
-        virtual ~Animal();
+        Cat();
+        Cat(const Cat& other);
+        Cat& operator=(const Cat& other);
+        ~Cat();
 
-        virtual std::string getType(void) const;
-        virtual void makeSound(void) const;
+        void 			makeSound(void) const;
+		void			setIdea(int idx, std::string idea);
+		std::string*	getIdeas();
+		Brain&			getBrain() const;
 };
 
 #endif
+

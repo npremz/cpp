@@ -12,38 +12,42 @@
 
 #include "../includes/Cat.hpp"
 #include "../includes/Dog.hpp"
-#include "../includes/WrongCat.hpp"
+
+#define ZOO 4
 
 int main(void)
 {
-    Animal* sylvain = new Cat();
-    Animal* benji = new Dog();
-    Animal* kouki = new Animal();
+	Animal *zoo[ZOO];
+	for (int i = 0; i < ZOO; ++i)
+	{
+		if (i % 2)
+			zoo[i] = new Dog();
+		else
+			zoo[i] = new Cat();
+	}
+	for (int i = 0; i < ZOO; ++i)
+	{
+		delete zoo[i];
+	}
 
-    WrongAnimal* casca = new WrongAnimal();
-    WrongAnimal* gabriel = new WrongCat();
-    
-    std::cout << sylvain->getType() << std::endl;
-    std::cout << benji->getType() << std::endl;
-    
-    std::cout << std::endl;
+	std::cout << std::endl;
 
-    kouki->makeSound();
-    sylvain->makeSound();
-    benji->makeSound();
+	Dog* benji = new Dog();
 
-    std::cout << std::endl;
+	std::cout << std::endl;
 
-    casca->makeSound();
-    gabriel->makeSound();
+	benji->setIdea(12, "waf");
+	std::cout << "Benji idea: " << benji->getIdeas()[12] << ", Adresse du tableau: "<< benji->getIdeas() << std::endl;
 
-    std::cout << std::endl;
+	Dog* casca = new Dog(*benji);
+	std::cout << "Casca idea: " << casca->getIdeas()[12] << ", Adresse du tableau: "<< casca->getIdeas() << std::endl;
 
-    delete sylvain;
-    delete benji;
-    delete kouki;
-    delete casca;
-    delete gabriel;
+	std::cout << std::endl;
+
+	delete benji;
+	delete casca;
+
+	// Animal *kouki = new Animal(); -> Renvoie une erreur
 
     return (0);
 }

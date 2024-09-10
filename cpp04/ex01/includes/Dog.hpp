@@ -6,7 +6,7 @@
 /*   By: npremont <npremont@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 09:17:40 by npremont          #+#    #+#             */
-/*   Updated: 2024/09/09 17:28:24 by npremont         ###   ########.fr       */
+/*   Updated: 2024/09/10 10:07:33 by npremont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ class Dog : public Animal
         Dog& operator=(const Dog& other);
         ~Dog();
 
-        void makeSound(void) const;
-		void	setIdea(size_t idx, std::string idea);
-		std::string	getIdea(int idx);
-		Brain&	getBrain() const;
+        void 			makeSound(void) const;
+		void			setIdea(int idx, std::string idea);
+		std::string*	getIdeas();
+		Brain&			getBrain() const;
 };
 
 #endif

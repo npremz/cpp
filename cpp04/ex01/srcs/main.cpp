@@ -32,19 +32,20 @@ int main(void)
 
 	std::cout << std::endl;
 
-	Animal* benji = new Dog();
+	Dog* benji = new Dog();
 
 	std::cout << std::endl;
 
-	((Dog*)benji)->setIdea(12, "waf");
-	std::cout << "Benji idea: " << ((Dog*)benji)->getIdea(12) << std::endl;
+	benji->setIdea(12, "waf");
+	std::cout << "Benji idea: " << benji->getIdeas()[12] << ", Adresse du tableau: "<< benji->getIdeas() << std::endl;
 
-	Animal* casca = new Dog((Dog&)benji);
-	std::cout << "Casca idea: " << ((Dog*)casca)->getIdea(12) << std::endl;
+	Dog* casca = new Dog(*benji);
+	std::cout << "Casca idea: " << casca->getIdeas()[12] << ", Adresse du tableau: "<< casca->getIdeas() << std::endl;
 
 	std::cout << std::endl;
 
 	delete benji;
+	delete casca;
 
     return (0);
 }
